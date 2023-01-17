@@ -431,6 +431,8 @@ void Viewer3D::saveGifImage() {
 
 void Viewer3D::oneGif() {
   if (startTime == tmpTime) {
+//    std::cout << "TMP = " << tmpTime;
+//    std::cout << "startTime == tmpTime";
     QPixmap screenGIF(this->ui->openGLWidget->size());  // *2
     //        screenGIF.setDevicePixelRatio(2);  // improves quality. mult the
     //        size by 2 line above ^
@@ -443,6 +445,8 @@ void Viewer3D::oneGif() {
     tmpTime += 1000 / gifFps;
   }
   if (startTime == 1000 * gifLength) {
+//    std::cout << "startTime == 1000 * gifLength" << std::end;
+//      std::cout << "startTime == 1000 * gifLength";
     gif->save(sfileName);
     timer->stop();
 
@@ -474,6 +478,7 @@ void Viewer3D::changeColorEdges() {
 }
 
 void Viewer3D::changeTypeVertexes(int index_type) {
+  std::cout << "pointType = " << index_type << std::endl;
   this->ui->openGLWidget->pointType = index_type;
   this->ui->openGLWidget->update();
 }
